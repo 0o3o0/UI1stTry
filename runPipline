@@ -1,0 +1,36 @@
+from linkedin_scraper_module import LinkedInScraper, ScraperConfig
+from linkedin_messenger_module import LinkedInMessenger, MessengerConfig
+
+# 1) מריץ סקרפר
+scraper_cfg = ScraperConfig(
+    email="YOUR_EMAIL",
+    password="YOUR_PASSWORD",
+    base_search_url="https://www.linkedin.com/search/results/people/?....",
+    start_page=16,
+    end_page=22,
+    output_csv_path="linkedin_leads24.csv",
+    headless=False,
+    verbose=True,
+)
+scraper = LinkedInScraper(scraper_cfg)
+scraper.run()
+
+# 2) מריץ שליחת הודעות על הקובץ שנשמר
+messenger_cfg = MessengerConfig(
+    email="YOUR_EMAIL",
+    password="YOUR_PASSWORD",
+    input_csv_path="linkedin_leads24.csv",
+    output_csv_path="linkedin_leads24_with_results.csv",
+    messages=[
+        "Hi {first}, 1",
+        "Hey {first}, 2",
+        "Hi {first}, 3",
+        "Hello {first}, 4",
+    ],
+    min_delay_sec=2,
+    max_delay_sec=4,
+    headless=False,
+    verbose=True,
+)
+messenger = LinkedInMessenger(messenger_cfg)
+messenger.run()
