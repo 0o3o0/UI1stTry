@@ -8,15 +8,15 @@ def run_scraper_stage():
     את הנתיב לקובץ ה-CSV נחזיר לשימוש בשלב הבא.
     """
     cfg = ScraperConfig(
-        email="YOUR_LINKEDIN_EMAIL_HERE",
-        password="YOUR_LINKEDIN_PASSWORD_HERE",
+        email="jezi_mirson@gmail.com",
+        password="Jellowfish556",
         base_search_url=(
             "https://www.linkedin.com/search/results/people/"
             "?geoUrn=%5B%22101620260%22%5D&keywords=finance&origin=FACETED_SEARCH"
         ),
-        start_page=16,
-        end_page=22,
-        output_csv_path="linkedin_leads24.csv",
+        start_page=1,
+        end_page=2,
+        output_csv_path="linkedin_leads646.csv",
         headless=False,   # אפשר True אם תרצה להריץ בלי חלון דפדפן
         verbose=True,
     )
